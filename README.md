@@ -21,7 +21,7 @@ https://nodejs.org/en/download
 
 #### Installation
 1. Create an empty folder
-2. Open the terminal, cd to that folder direct and type:
+2. Open the terminal, change direct to that folder and type:
 ```sh
 git clone https://github.com/phunlh2001/Express-SwaggerUI.git
 ```
