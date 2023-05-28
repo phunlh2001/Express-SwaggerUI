@@ -1,0 +1,29 @@
+{
+  "name": "SwaggerAPIs",
+  "description": "Learn how to customize Swagger for Nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "author": {
+    "name": "Kaiz",
+    "email": "phunlh2001@gmail.com"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "joi": "^17.9.2",
+    "sequelize": "^6.31.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
+    "tedious": "^16.1.0",
+    "yaml": "^2.3.1"
+  }
+}

@@ -1,0 +1,170 @@
+openapi: 3.0.3
+info:
+  title: API for PRN231 Assignment1 (Work by NodeJS)
+  description: 
+    This API allow client use to CRUD information of customer in MVC model subject PRN231
+  version: 1.0.0
+paths:
+  /api/customers:
+    get:
+      tags:
+        - Customer
+      summary: Get all
+      description: Get all data customer from database
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fullName:
+                    type: string
+                  birthday:
+                    type: string
+                  gender:
+                    type: string
+                  phoneNumber:
+                    type: string
+                  email:
+                    type: string
+    post:
+      tags:
+        - Customer
+      summary: Create
+      description: Create a new customer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fullName:
+                  type: string
+                birthday:
+                  type: string
+                gender:
+                  type: string
+                phoneNumber:
+                  type: string
+                email:
+                   type: string
+      responses:
+        "201":
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fullName:
+                    type: string
+                  birthday:
+                    type: string
+                  gender:
+                    type: string
+                  phoneNumber:
+                    type: string
+                  email:
+                    type: string
+        "400":
+          description: "Bad Request"
+  /api/customers/{id}:
+    get:
+      tags:
+        - Customer
+      summary: Get by id
+      description: Get a customer by id
+      parameters:
+        - name: id
+          in: path
+          description: this is a customer id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fullName:
+                    type: string
+                  birthday:
+                    type: string
+                  gender:
+                    type: string
+                  phoneNumber:
+                    type: string
+                  email:
+                    type: string
+        "404":
+          description: "Not Found"
+    put:
+      tags:
+        - Customer
+      summary: Update
+      description: Update a customer by Id
+      parameters:
+        - name: id
+          in: path
+          description: this is a customer id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fullName:
+                  type: string
+                birthday:
+                  type: string
+                gender:
+                  type: string
+                phoneNumber:
+                  type: string
+                email:
+                   type: string
+      responses:
+        "201":
+          description: "Created"
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  fullName:
+                    type: string
+                  birthday:
+                    type: string
+                  gender:
+                    type: string
+                  phoneNumber:
+                    type: string
+                  email:
+                    type: string
+        "400":
+          description: "Bad Request"
+    delete:
+      tags:
+        - Customer
+      summary: Delete
+      description: Delete a customer by id
+      parameters:
+        - name: id
+          in: path
+          description: this is a customer id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "OK"
+        "404":
+          description: "Not Found"
