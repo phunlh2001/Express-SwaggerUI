@@ -25,7 +25,7 @@ export { router };
 function getAll(req, res, next) {
   customerServices
     .getAll()
-    .then((data) => res.json(data))
+    .then((data) => res.status(200).json(data))
     .catch(next);
 }
 
@@ -38,8 +38,11 @@ function getAll(req, res, next) {
 function getById(req, res, next) {
   customerServices
     .getById(req.params.id)
-    .then((data) => res.json(data))
-    .catch(next);
+    .then((data) => res.status(200).json(data))
+    .catch(() => {
+      res.status(404).json({ message: "Not Found" });
+      next();
+    });
 }
 
 /**
@@ -51,8 +54,11 @@ function getById(req, res, next) {
 function create(req, res, next) {
   customerServices
     .create(req.body)
-    .then(() => res.json({ message: "Customer created" }))
-    .catch(next);
+    .then(() => res.status(201).json({ message: "Customer created" }))
+    .catch(() => {
+      res.status(400).json({ message: "Bad Request" });
+      next();
+    });
 }
 
 /**
@@ -64,8 +70,11 @@ function create(req, res, next) {
 function _delete(req, res, next) {
   customerServices
     .delete(req.params.id)
-    .then(() => res.json({ message: "Customer deleted" }))
-    .catch(next);
+    .then(() => res.status(200).json({ message: "Customer deleted" }))
+    .catch(() => {
+      res.status(404).json({ message: "Not Found" });
+      next();
+    });
 }
 
 /**
@@ -77,7 +86,11 @@ function _delete(req, res, next) {
 function update(req, res, next) {
   customerServices
     .update(req.params.id, req.body)
-    .then(() => res.json({ message: "Customer updated" }));
+    .then(() => res.status(200).json({ message: "Customer updated" }))
+    .catch(() => {
+      res.status(400).json({ message: "Bad Request" });
+      next();
+    });
 }
 
 // ================= MIDDLEWARES ================= //
