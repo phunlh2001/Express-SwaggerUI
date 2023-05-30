@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import morgan from "morgan";
 import { serve, setup } from "swagger-ui-express";
 import { readFileSync } from "fs";
 import * as YAML from "yaml";
@@ -12,6 +13,9 @@ const PORT = 8001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
+// http logger
+app.use(morgan("combined"));
 
 // configuration swagger
 const file = readFileSync("./openapi.yaml", "utf8");
